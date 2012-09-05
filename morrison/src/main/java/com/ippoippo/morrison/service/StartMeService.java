@@ -36,7 +36,7 @@ public class StartMeService {
 	@Cacheable("cachedStartMe")
 	public StartMe get(Integer id) throws RecoverableException {
 		logger.info("get by " + id);
-		if (id == 2) {
+		if (id == 2) { // an example
 			String msg = "forbidden: " + id;
 			logger.info(msg);
 			throw new RecoverableException(msg);

@@ -10,8 +10,7 @@
 	<context:property-placeholder properties-ref="defaultProperties" />
 	
 	<util:properties id="defaultProperties">
-		<!-- general -->
-		<prop key="application.name">startMe</prop>
+		<prop key="healthcheck.url">http://localhost:8080/morrison/sys/hchk</prop>
 	</util:properties>
 	
 </beans>

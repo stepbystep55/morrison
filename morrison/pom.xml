@@ -257,29 +257,6 @@
 					</webResources>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>com.samaxes.maven</groupId>
-				<artifactId>minify-maven-plugin</artifactId>
-				<version>1.5.1</version>
-				<executions>
-					<execution>
-						<id>default-minify</id>
-						<phase>process-resources</phase>
-						<configuration>
-							<cssSourceDir>src/main/webapp/resources/css</cssSourceDir>
-							<cssSourceFiles>
-								<cssSourceFile>bootstrap.min.css</cssSourceFile>
-								<cssSourceFile>bootstrap-responsive.min.css</cssSourceFile>
-								<cssSourceFile>main.css</cssSourceFile>
-							</cssSourceFiles>
-							<cssFinalFile>all.min.css</cssFinalFile>
-						</configuration>
-						<goals>
-							<goal>minify</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 	<profiles>

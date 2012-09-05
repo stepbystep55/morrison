@@ -63,5 +63,5 @@
 		p:config-location="/WEB-INF/spring/appServlet/ehcache.xml"/>
 
 	<!-- asynchronous job -->
-	<beans:import resource="job.xml" />
+	<beans:import resource="task.xml" />
 </beans:beans>

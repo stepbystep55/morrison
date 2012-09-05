@@ -10,4 +10,9 @@
 	<task:executor id="taskExecutor" pool-size="10"/>
 	<task:scheduler id="taskScheduler" pool-size="3"/>
 
+	<bean id="checkMe" class="com.ippoippo.morrison.job.CheckMeJob" />
+	<task:scheduler id="checkMeScheduler" />
+	<task:scheduled-tasks scheduler="checkMeScheduler">
+		<task:scheduled ref="checkMe" method="execute" cron="0 */1 * * * *"/>
+	</task:scheduled-tasks>
 </beans>
