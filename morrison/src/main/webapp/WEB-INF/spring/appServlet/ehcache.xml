@@ -18,4 +18,20 @@
 			overflowToDisk="false" 
 			timeToLiveSeconds="60"
 		/>
+		<cache 
+			maxElementsInMemory="0"
+			statistics="true"
+			name="cachedStartMeInMapper" 
+			eternal="false"
+			overflowToDisk="false" 
+			timeToLiveSeconds="60"
+		/>
+		<cache 
+			maxElementsInMemory="0"
+			statistics="true"
+			name="cachedStartMeInController" 
+			eternal="false"
+			overflowToDisk="false" 
+			timeToLiveSeconds="60"
+		/>
 </ehcache>

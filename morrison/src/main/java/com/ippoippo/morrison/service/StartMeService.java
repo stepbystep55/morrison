@@ -10,8 +10,10 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.ippoippo.morrison.dto.StartMe;
+import com.ippoippo.morrison.dto.TouchMe;
 import com.ippoippo.morrison.exception.RecoverableException;
 import com.ippoippo.morrison.mapper.StartMeMapper;
+import com.ippoippo.morrison.mapper.TouchMeMapper;
 
 @Service
 public class StartMeService {
@@ -20,6 +22,9 @@ public class StartMeService {
 
 	@Inject
 	StartMeMapper startMeMapper;
+
+	@Inject
+	TouchMeService touchMeService;
 
 	public StartMe newObject() {
 		Integer id = startMeMapper.newId();
@@ -44,8 +49,17 @@ public class StartMeService {
 		return startMeMapper.get(id);
 	}
 
+//	public void create(StartMe startMe) {
+//		startMeMapper.create(startMe);
+//	}
+
 	public void create(StartMe startMe) {
 		startMeMapper.create(startMe);
+
+		TouchMe touchMe = touchMeService.newObject();
+		touchMe.setName("hoge!");
+		touchMe.setTouch(true);
+		touchMeService.create(touchMe);
 	}
 
 	public void delete(Integer id) {

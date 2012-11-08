@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ippoippo.morrison.mapper.TouchMeMapper">
+
+	<select id="newId" resultType="Integer">
+		SELECT
+			MAX(ID) + 1
+		FROM
+			TOUCH_ME
+	</select>
+
+	<select id="list" resultType="com.ippoippo.morrison.dto.TouchMe">
+		SELECT
+			ID as id
+			, NAME as name
+			, TOUCH as touch
+		FROM
+			TOUCH_ME
+	</select>
+
+	<select id="get" resultType="com.ippoippo.morrison.dto.TouchMe" parameterType="Integer">
+		SELECT
+			ID as id
+			, NAME as name
+			, TOUCH as touch
+		FROM
+			TOUCH_ME
+		WHERE
+			ID = #{id}
+	</select>
+
+	<insert id="create" parameterType="com.ippoippo.morrison.dto.TouchMe">
+		INSERT INTO TOUCH_ME
+		(
+			ID,
+			NAME,
+			TOUCH
+		)
+		VALUES
+		(
+			#{id}
+			, #{name}
+			, #{touch}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.ippoippo.morrison.dto.TouchMe">
+		UPDATE TOUCH_ME
+		SET
+			NAME = #{name}
+			<if test="touch != null">, TOUCH = #{touch}</if>
+		WHERE
+			ID = #{id}
+	</update>
+
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM 
+			TOUCH_ME
+		WHERE 
+			ID = #{id}
+	</delete>
+</mapper>

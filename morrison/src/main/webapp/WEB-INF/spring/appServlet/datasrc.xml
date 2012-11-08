@@ -8,21 +8,23 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 	<!-- Embedded database for storing connections -->
+	<!--
 	<jdbc:embedded-database id="dataSource" type="H2">
 		<jdbc:script location="classpath:/com/ippoippo/morrison/mapper/startme.ddl" />
+		<jdbc:script location="classpath:/com/ippoippo/morrison/mapper/touchme.ddl" />
 	</jdbc:embedded-database>	
+	-->
 
-	<!--
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.h2.Driver" />
-		<property name="url" value="jdbc:h2:tcp://localhost/d:/h2/data" />
+		<property name="url" value="jdbc:h2:tcp://localhost/c:/h2/data" />
 		<property name="username" value="sa" />
 		<property name="password" value="" />
 	</bean>
-	<jdbc:initialize-database data-source="dataSource" enabled="${init.db}">
-		<jdbc:script location="classpath:/com/ippoippo/morrison/mapper/systemcheck.ddl" />
+	<jdbc:initialize-database data-source="dataSource" enabled="false">
+		<jdbc:script location="classpath:/com/ippoippo/morrison/mapper/startme.ddl" />
+		<jdbc:script location="classpath:/com/ippoippo/morrison/mapper/touchme.ddl" />
 	</jdbc:initialize-database>
-	-->
 
 	<!-- Local, JDBC-based TransactionManager -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
